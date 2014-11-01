@@ -1,0 +1,4 @@
+Station will deal with passengers entering and exiting the station. 
+
+Carriage will deal with passengers boarding and alighting the carraige/train.
+
