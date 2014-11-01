@@ -20,11 +20,11 @@ DEFAULT_CARRIAGES = 6
   end
 
   def go_to(station)
-    @location = station
+    @location = station.name
   end
 
   def location
-    @location.name
+    @location
   end
 
 
