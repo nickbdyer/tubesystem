@@ -4,6 +4,9 @@ DEFAULT_CARRIAGES = 6
 
   def initialize(options = {})
     self.carriages = options.fetch(:carriages, carriages)
+    @train = []
+    carriages.times{@train << Carriage.new}
+    @location = "Depot"
   end
   
   attr_writer :carriages
@@ -12,8 +15,17 @@ DEFAULT_CARRIAGES = 6
     @carriages ||= DEFAULT_CARRIAGES
   end
 
-  def carriage_count
-    @carriages
+  def length
+    @train.count
   end
+
+  def go_to(station)
+    @location = station
+  end
+
+  def location
+    @location.name
+  end
+
 
 end
