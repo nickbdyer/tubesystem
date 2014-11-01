@@ -1,12 +1,12 @@
 Station will deal with passengers entering and exiting the station. 
 
-Carriage will deal with passengers boarding and alighting the carraige/train.
+Carriage will deal with passengers boarding and alighting the carraige/train. DONE
 
-Carriage and station will share a module probably. PassengerHolder?!
+Carriage and station will share a module probably. PassengerHolder?! NO
 
-Station knows if there is a train stopped there. 
+Station knows if there is a train stopped there. DONE
 
-Train knows what station it is at, and where it is going to. 
+Train knows what station it is at, and where it is going to. DONE
 
-Station must have a method name that returns its name as a String.
+Station must have a method name that returns its name as a String. DONE
 

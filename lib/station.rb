@@ -9,10 +9,6 @@ class Station
 
   attr_reader :name
 
-  def passengers
-    0
-  end
-
   def stop(train)
     @trains << train
   end
@@ -27,6 +23,10 @@ class Station
 
   def accept(passenger)
     @passengers << passenger
+  end
+
+  def release(passenger)
+    @passengers.delete(passenger)
   end
 
   def passenger_count

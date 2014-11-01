@@ -11,7 +11,7 @@ describe Station do
   end
 
   it "should be empty of passengers when initialized" do
-    expect(bond_street.passengers).to eq 0
+    expect(bond_street.passenger_count).to eq 0
   end
 
   it "should accept a train at the station" do
@@ -37,6 +37,12 @@ describe Station do
 
   it "should know what it's name is" do
     expect(bond_street.name).to eq "Bond Street"
+  end
+
+  it "should release a passenger from the station" do
+    bond_street.accept(passenger)
+    bond_street.release(passenger)
+    expect(bond_street.passenger_count).to eq 0
   end
 
 end
