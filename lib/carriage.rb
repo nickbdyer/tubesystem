@@ -2,6 +2,7 @@ class Carriage
 
   def initialize
     @passengers = []
+    @capacity = 40
   end
 
   def empty?
@@ -14,6 +15,10 @@ class Carriage
 
   def alight(passenger)
     @passengers.delete(passenger)
+  end
+
+  def full?
+    @passengers.count >= @capacity
   end
 
 end

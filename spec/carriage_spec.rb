@@ -14,12 +14,18 @@ describe Carriage do
     expect(carriage).not_to be_empty
   end
 
-
-  it "should allow a passenge to alight" do
+  it "should allow a passenger to alight" do
     carriage.board(passenger)
     carriage.alight(passenger)
     expect(carriage).to be_empty
   end
+
+  it "should know when it is full" do
+    40.times{carriage.board(passenger)}
+    expect(carriage).to be_full
+  end
+
+
 
 
 end
