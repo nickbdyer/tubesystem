@@ -3,6 +3,7 @@ class Station
   def initialize
     @trains = []
     @passengers = []
+    @capacity = 2
   end
 
   def passengers
@@ -23,6 +24,10 @@ class Station
 
   def passenger_count
     @passengers.count
+  end
+
+  def full?
+    train_count >= @capacity
   end
 
 end
