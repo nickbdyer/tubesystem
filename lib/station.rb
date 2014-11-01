@@ -2,6 +2,7 @@ class Station
 
   def initialize
     @trains = []
+    @passengers = []
   end
 
   def passengers
@@ -14,6 +15,14 @@ class Station
 
   def train_count
     @trains.count
+  end
+
+  def accept(passenger)
+    @passengers << passenger
+  end
+
+  def passenger_count
+    @passengers.count
   end
 
 end
