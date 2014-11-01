@@ -12,4 +12,8 @@ class Carriage
     @passengers << passenger
   end
 
+  def alight(passenger)
+    @passengers.delete(passenger)
+  end
+
 end

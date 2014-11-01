@@ -14,8 +14,14 @@ describe Carriage do
     expect(carriage).not_to be_empty
   end
 
-  
 
+it "should allow a passenge to alight" do
+  carriage = Carriage.new
+  passenger = double :passenger
+  carriage.board(passenger)
+  carriage.alight(passenger)
+  expect(carriage).to be_empty
+end
 
 
 end
