@@ -35,4 +35,11 @@ describe Station do
     expect(bond_street).to be_full
   end
 
+  it "should be able to release(start) a train" do
+    bond_street.stop(train)
+    bond_street.start(train)
+    expect(bond_street.train_count).to eq 0
+
+  end
+
 end

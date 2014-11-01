@@ -14,6 +14,10 @@ class Station
     @trains << train
   end
 
+  def start(train)
+    @trains.delete(train)
+  end
+
   def train_count
     @trains.count
   end
