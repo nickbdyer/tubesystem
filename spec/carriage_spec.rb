@@ -25,7 +25,4 @@ describe Carriage do
     expect(carriage).to be_full
   end
 
-
-
-
 end
