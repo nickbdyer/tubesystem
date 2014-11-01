@@ -8,3 +8,5 @@ Station knows if there is a train stopped there.
 
 Train knows what station it is at, and where it is going to. 
 
+Station must have a method name that returns its name as a String.
+
