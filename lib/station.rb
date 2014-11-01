@@ -1,10 +1,13 @@
 class Station
 
-  def initialize
+  def initialize(name = "Depot")
     @trains = []
     @passengers = []
     @capacity = 2
+    @name = name
   end
+
+  attr_reader :name
 
   def passengers
     0

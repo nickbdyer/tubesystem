@@ -2,7 +2,7 @@ require 'station'
 
 describe Station do
 
-  let(:bond_street) { Station.new       }
+  let(:bond_street) { Station.new("Bond Street")       }
   let(:train)       { double :train     }
   let(:passenger)   { double :passenger }
 
@@ -39,7 +39,10 @@ describe Station do
     bond_street.stop(train)
     bond_street.start(train)
     expect(bond_street.train_count).to eq 0
+  end
 
+  it "should know what it's name is" do
+    expect(bond_street.name).to eq "Bond Street"
   end
 
 end
