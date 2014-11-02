@@ -28,6 +28,7 @@ class Passenger
   end
 
   def board(train, carriage_number)
+    raise "That train isn't here." if @location != train.location
     @location = train.location
     train.carriages[carriage_number].board(self)
   end

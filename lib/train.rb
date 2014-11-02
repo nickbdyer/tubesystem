@@ -29,8 +29,5 @@ DEFAULT_CARRIAGES = 6
     @location
   end
 
-  def board
-  end
-
 
 end
