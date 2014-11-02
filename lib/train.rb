@@ -31,6 +31,6 @@ DEFAULT_CARRIAGES = 6
 
   def board
   end
-  
+
 
 end

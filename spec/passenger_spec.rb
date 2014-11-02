@@ -1,10 +1,12 @@
 require 'passenger'
+require 'train'
 
 describe Passenger do
 
   let(:passenger) { Passenger.new }
   let(:station) {double :station, name: "Bond Street", accept: nil}
-  let(:train) {double :train, board: nil, location: "Bond Street" }
+  let(:train) {Train.new}
+  #{double :train, board: nil, location: "Bond Street"}
 
   it "should be at home when initialized" do
     expect(passenger.location).to eq "Home"
@@ -35,10 +37,10 @@ describe Passenger do
     expect(passenger.location).to eq "Home"
   end
 
-  xit "should be able to board a train" do
+  it "should be able to board a train" do
     passenger.go_to(station)
-    expect(train)
     passenger.board(train, 1)
+    expect(train.carriages[1].empty?).to be false
   end
 
 end
