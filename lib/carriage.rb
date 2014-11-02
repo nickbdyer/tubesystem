@@ -10,7 +10,8 @@ class Carriage
   end
 
   def board(passenger)
-    @passengers << passenger
+    raise "Carriage is full." if full?
+    @passengers << passenger unless full?
   end
 
   def alight(passenger)

@@ -25,4 +25,9 @@ describe Carriage do
     expect(carriage).to be_full
   end
 
+  it "should raise an error when a passenger tries to board when full" do
+    40.times{carriage.board(passenger)}
+    expect{carriage.board(passenger)}.to raise_error("Carriage is full.")
+  end
+
 end
