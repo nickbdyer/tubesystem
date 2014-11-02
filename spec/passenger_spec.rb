@@ -27,6 +27,7 @@ describe Passenger do
 
   it "should only be able to enter a station if they have a payment card" do
     passenger = Passenger.new
+    passenger.lose_card
     station = (double :station, name: "Bond Street")
     expect{passenger.go_to(station)}.to raise_error("Entry not permitted without card.")
   end
