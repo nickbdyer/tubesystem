@@ -5,9 +5,7 @@ class Passenger
     @has_payment_card = true
   end
 
-  def location
-    @location
-  end
+  attr_accessor :location
 
   def go_to(station)
     raise "Entry not permitted without card." unless has_payment_card?

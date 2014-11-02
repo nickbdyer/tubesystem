@@ -5,6 +5,8 @@ class Carriage
     @capacity = 40
   end
 
+  attr_reader :passengers
+
   def empty?
     @passengers.count == 0
   end
