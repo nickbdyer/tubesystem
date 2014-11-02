@@ -1,7 +1,16 @@
 class Passenger
 
+  def initialize
+    @location = "Home"
+  end
+
+
   def location
-    "Home"
+    @location
+  end
+
+  def go_to(station)
+    @location = station.name
   end
 end
  
