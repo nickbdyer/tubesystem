@@ -15,7 +15,7 @@ describe Train do
   end
 
   it "should be possible to set the number of carriages on initialization" do
-    train = Train.new(carriages: 8)
+    train = Train.new(number_of_carriages: 8)
     expect(train.length).to eq 8
   end
 
@@ -23,6 +23,8 @@ describe Train do
     train.go_to(old_street)
     expect(train.location).to eq "Old Street"
   end
+
+
 
 
 end

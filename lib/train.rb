@@ -3,17 +3,19 @@ class Train
 DEFAULT_CARRIAGES = 6
 
   def initialize(options = {})
-    self.carriages = options.fetch(:carriages, carriages)
+    self.number_of_carriages = options.fetch(:number_of_carriages, number_of_carriages)
     @train = []
-    carriages.times{@train << Carriage.new}
+    number_of_carriages.times{@train << Carriage.new}
     @location = "Depot"
   end
   
-  attr_writer :carriages
+  attr_writer :number_of_carriages
 
-  def carriages
-    @carriages ||= DEFAULT_CARRIAGES
+  def number_of_carriages
+    @number_of_carriages ||= DEFAULT_CARRIAGES
   end
+
+
 
   def length
     @train.count
