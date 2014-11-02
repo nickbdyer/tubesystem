@@ -1,4 +1,4 @@
-Station will deal with passengers entering and exiting the station. 
+Station will deal with passengers entering and exiting the station. DONE 
 
 Carriage will deal with passengers boarding and alighting the carraige/train. DONE
 
