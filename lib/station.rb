@@ -13,7 +13,7 @@ class Station
     @trains << train
   end
 
-  def start(train)
+  def move(train)
     @trains.delete(train)
   end
 

@@ -7,6 +7,7 @@ DEFAULT_CARRIAGES = 6
     @carriages = []
     number_of_carriages.times{@carriages << Carriage.new}
     @location = "Depot"
+    @platform = nil
   end
   
   attr_writer :number_of_carriages
@@ -21,8 +22,11 @@ DEFAULT_CARRIAGES = 6
     @carriages.count
   end
 
-  def go_to(station)
-    @location = station.name
+  def go_to(destination_station)
+    @platform.move(self) unless @location == "Depot"
+    destination_station.stop(self)
+    @location = destination_station.name
+    @platform = destination_station
   end
 
   def location

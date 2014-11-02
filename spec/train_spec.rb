@@ -3,7 +3,7 @@ require 'Train'
 describe Train do
 
   let(:train)      { Train.new       }
-  let(:old_street) { double :station, name: "Old Street" }
+  let(:old_street) { double :station, name: "Old Street", stop: nil }
 
   it "should have 6 carriages when initialized" do
     train = Train.new
