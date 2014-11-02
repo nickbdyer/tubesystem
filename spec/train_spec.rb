@@ -5,9 +5,9 @@ describe Train do
   let(:train)      { Train.new       }
   let(:old_street) { double :station, name: "Old Street", stop: nil }
 
-  it "should have 6 carriages when initialized" do
+  it "should have 2 carriages when initialized" do
     train = Train.new
-    expect(train.length).to eq 6
+    expect(train.length).to eq 2
   end
 
   it "should be at the Depot when initialised" do

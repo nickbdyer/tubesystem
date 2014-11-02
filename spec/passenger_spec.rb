@@ -4,7 +4,7 @@ describe Passenger do
 
   let(:passenger) { Passenger.new }
   let(:station)   { double :station, name: "Bond Street", accept: nil}
-  let(:train)     { Train.new }
+  # let(:train)     { Train.new }
   let(:train2)    { double :train, board: nil, location: "Victoria"}
 
   it "should be at home when initialized" do
