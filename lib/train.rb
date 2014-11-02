@@ -1,6 +1,6 @@
 class Train
 
-DEFAULT_CARRIAGES = 6
+DEFAULT_CARRIAGES = 2
 
   def initialize(options = {})
     self.number_of_carriages = options.fetch(:number_of_carriages, number_of_carriages)
