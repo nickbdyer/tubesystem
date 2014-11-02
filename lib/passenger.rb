@@ -31,5 +31,11 @@ class Passenger
     train.carriages[carriage_number].board(self)
   end
 
+  def alight(train, carriage_number)
+    raise "You are not in that train carriage." if !train.carriages[carriage_number].passengers.include? self 
+    train.carriages[carriage_number].alight(self)
+  end
+
+
 end
  
