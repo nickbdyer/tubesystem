@@ -14,4 +14,9 @@ describe Passenger do
     expect(passenger.location).to eq "Bond Street"
   end
 
+  it "should have a payment card on initialization" do
+    passenger = Passenger.new
+    expect(passenger).to have_payment_card
+  end
+
 end
