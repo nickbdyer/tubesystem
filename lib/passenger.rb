@@ -12,6 +12,7 @@ class Passenger
   def go_to(station)
     raise "Entry not permitted without card." unless has_payment_card?
     @location = station.name
+    # station.accept(self)
   end
 
   def has_payment_card?
@@ -21,6 +22,8 @@ class Passenger
   def lose_card
     @has_payment_card = false
   end
+
+
 
 end
  
