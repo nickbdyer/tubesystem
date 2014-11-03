@@ -3,7 +3,7 @@ require 'passenger'
 describe Passenger do
 
   let(:passenger) { Passenger.new }
-  let(:station)   { double :station, name: "Bond Street", accept: nil}
+  let(:station)   { double :station, name: "Bond Street", accept: nil, release: nil}
   let(:station1)  { Station.new("Clapham Common")}
   let(:train)     { Train.new }
   let(:train2)    { double :train, board: nil, location: "Victoria"}
