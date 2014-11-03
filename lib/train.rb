@@ -8,12 +8,12 @@ attr_reader :passengers
 attr_writer :number_of_carriages
 
   def initialize(options = {})
-    self.number_of_carriages = options.fetch(:number_of_carriages, number_of_carriages)
-    @carriages = []
-    number_of_carriages.times{@carriages << Carriage.new}
     @location = "Depot"
-    @platform = nil
+    @at_platform = nil
+    @carriages = []
     @passengers = []
+    self.number_of_carriages = options.fetch(:number_of_carriages, number_of_carriages)
+    number_of_carriages.times{@carriages << Carriage.new}
   end
 
   def number_of_carriages
@@ -25,34 +25,39 @@ attr_writer :number_of_carriages
   end
 
   def go_to(destination_station)
-    @platform.move(self) unless @location == "Depot"
+    @at_platform.move(self) unless !@at_platform
     destination_station.stop(self)
+    update_location(destination_station)
+  end
+
+  def update_location(destination_station)
     @location = destination_station.name
-    @platform = destination_station
+    @at_platform = destination_station
     update_passenger_location
   end
 
-  def passenger_count
-    passengers_array
-    @passengers.count
-  end
-
-
   def update_passenger_location
-    passengers_array
+    create_passengers_array
     @passengers.each do |passenger|
       passenger.location = @location
     end
   end
 
+  # Not sure that this method is actually required.
+  # def passenger_count
+  #   create_passengers_array
+  #   @passengers.count
+  # end
+
 private 
 
-  def passengers_array
+  def create_passengers_array
     @carriages.each do |carriage|
       carriage.passengers.each do |passenger|
         @passengers << passenger
       end
     end
+
   end
-  
+
 end
