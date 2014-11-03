@@ -17,10 +17,6 @@ class Station
     @trains.delete(train)
   end
 
-  def train_count
-    @trains.count
-  end
-
   def accept(passenger)
     @passengers << passenger
   end
@@ -31,6 +27,10 @@ class Station
 
   def passenger_count
     @passengers.count
+  end
+
+  def train_count
+    @trains.count
   end
 
   def full?
