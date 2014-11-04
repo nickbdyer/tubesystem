@@ -4,9 +4,9 @@ describe Passenger do
 
   let(:passenger) { Passenger.new }
   let(:station)   { double :station, name: "Bond Street", accept: nil, release: nil}
-  let(:station1)  { Station.new("Clapham Common")}
-  let(:train)     { Train.new }
-  let(:train2)    { double :train, board: nil, location: "Victoria"}
+  let(:station1)  { double :station, name: "Clapham Common" }
+  let(:train)     { double :train, location: "Victoria" }
+  
 
   it "should be at home when initialized" do
     expect(passenger.location).to eq "Home"
@@ -45,22 +45,8 @@ describe Passenger do
 
   it "should not be possible to board a train that isn't at the station" do
     passenger.go_to(station)
-    expect{passenger.board(train2, 1)}.to raise_error("That train isn't here.")
+    expect{passenger.board(train, 1)}.to raise_error("That train isn't here.")
   end
 
-
-  # it "should be able to board a train" do
-  #   passenger.go_to(station)
-  #   passenger.board(train, 1)
-  #   expect(train.carriages[1].empty?).to be false
-  # end
-
- it "should be able to alight a train" do
-    passenger.go_to(station1)
-    train.go_to(station1)
-    passenger.board(train, 1)
-    passenger.alight(train, 1)
-    expect(train.carriages[1].empty?).to be true
-  end
 
 end
