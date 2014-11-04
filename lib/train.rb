@@ -40,6 +40,7 @@ attr_writer :number_of_carriages
     create_passengers_array
     @passengers.each do |passenger|
       passenger.location = @location
+      passenger.station = @at_platform
     end
   end
 

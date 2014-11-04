@@ -7,6 +7,7 @@ class Passenger
   end
 
   attr_accessor :location
+  attr_accessor :station
 
     def has_payment_card?
     @has_payment_card
@@ -38,6 +39,8 @@ class Passenger
   def alight(train, carriage_number)
     raise "You are not in that train carriage." if !train.carriages[carriage_number].passengers.include? self 
     train.carriages[carriage_number].alight(self)
+    @station.accept(self)
+    train.passengers.delete(self)
   end
 
 
