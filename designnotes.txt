@@ -10,4 +10,4 @@ Train knows what station it is at, and where it is going to. DONE
 
 Station must have a method name that returns its name as a String. DONE
 
-Passengers that are on a train that has moved station, no longer know where they are... 
+Passengers that are on a train that has moved station, no longer know where they are... DONE

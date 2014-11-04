@@ -37,10 +37,17 @@ describe Passenger do
     expect(passenger.location).to eq "Home"
   end
 
+  it "should only be able to leave the train station it is at" do
+    passenger.go_to(station)
+    expect{passenger.leave(station1)}.to raise_error("You can not leave a station you are not at.")
+   
+  end
+
   it "should not be possible to board a train that isn't at the station" do
     passenger.go_to(station)
     expect{passenger.board(train2, 1)}.to raise_error("That train isn't here.")
   end
+
 
   # it "should be able to board a train" do
   #   passenger.go_to(station)

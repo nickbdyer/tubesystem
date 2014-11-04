@@ -22,6 +22,7 @@ class Passenger
   end
 
   def leave(station)
+    raise "You can not leave a station you are not at." if station.name != @location
     @location = "Home"
     station.release(self)
   end
