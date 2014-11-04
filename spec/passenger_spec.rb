@@ -6,6 +6,7 @@ describe Passenger do
   let(:station)   { double :station, name: "Bond Street", accept: nil, release: nil}
   let(:station1)  { double :station, name: "Clapham Common" }
   let(:train)     { double :train, location: "Victoria" }
+  let(:train1)    { double :train, location: "Bond Street" }
   
 
   it "should be at home when initialized" do
@@ -40,12 +41,20 @@ describe Passenger do
   it "should only be able to leave the train station it is at" do
     passenger.go_to(station)
     expect{passenger.leave(station1)}.to raise_error("You can not leave a station you are not at.")
-   
   end
 
   it "should not be possible to board a train that isn't at the station" do
     passenger.go_to(station)
     expect{passenger.board(train, 1)}.to raise_error("That train isn't here.")
+  end
+
+  it "should not exist in a station when it boards a train" do
+    carriage = double :carriage
+    passenger.go_to(station)
+    allow(train1).to receive(:carriages).and_return([carriage])
+    allow(carriage).to receive(:board)
+    expect(station).to receive(:release).with(passenger)
+    passenger.board(train1, 0)
   end
 
 

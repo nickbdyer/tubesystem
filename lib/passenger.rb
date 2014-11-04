@@ -3,6 +3,7 @@ class Passenger
   def initialize
     @location = "Home"
     @has_payment_card = true
+    @station = nil
   end
 
   attr_accessor :location
@@ -19,6 +20,7 @@ class Passenger
     raise "Entry not permitted without card." unless has_payment_card?
     @location = station.name
     station.accept(self)
+    @station = station
   end
 
   def leave(station)
@@ -30,6 +32,7 @@ class Passenger
   def board(train, carriage_number)
     raise "That train isn't here." if @location != train.location
     train.carriages[carriage_number].board(self)
+    @station.release(self)
   end
 
   def alight(train, carriage_number)
