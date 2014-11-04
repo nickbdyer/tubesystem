@@ -27,6 +27,7 @@ describe Train do
 
   it "should be able to inform the passengers of their new location" do
     train.carriages[0].board(passenger)
+    allow(passenger).to receive(:station=).with(old_street)
     expect(passenger).to receive(:location=).with("Old Street")
     train.go_to(old_street)
   end
