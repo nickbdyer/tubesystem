@@ -25,13 +25,6 @@ describe Train do
     expect(train.location).to eq "Old Street"
   end
 
-  # Not sure this test is required, duplication in carriage. 
-  # it "should know how many passengers it has" do
-  #   10.times{train.carriages[0].board(passenger)}
-  #   10.times{train.carriages[0].board(passenger)}
-  #   expect(train.passenger_count).to eq 20
-  # end
-
   it "should be able to inform the passengers of their new location" do
     train.carriages[0].board(passenger)
     expect(passenger).to receive(:location=).with("Old Street")
