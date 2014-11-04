@@ -43,14 +43,6 @@ attr_writer :number_of_carriages
     end
   end
 
-  # Not sure that this method is actually required.
-  # def passenger_count
-  #   create_passengers_array
-  #   @passengers.count
-  # end
-
-private 
-
   def create_passengers_array
     @carriages.each do |carriage|
       carriage.passengers.each do |passenger|
