@@ -3,10 +3,10 @@ require 'passenger'
 describe Passenger do
 
   let(:passenger) { Passenger.new }
-  let(:station)   { double :station, name: "Bond Street", accept: nil, release: nil}
-  let(:station1)  { double :station, name: "Clapham Common" }
-  let(:train)     { double :train, location: "Victoria" }
-  let(:train1)    { double :train, location: "Bond Street" }
+  let(:station)   { double :station, accept: nil, release: nil  }
+  let(:station1)  { double :station                             }
+  let(:train)     { double :train, at_platform: station1        }
+  let(:train1)    { double :train, at_platform: station         }
   
 
   it "should be at home when initialized" do
@@ -52,6 +52,7 @@ describe Passenger do
     carriage = double :carriage
     passenger.go_to(station)
     allow(train1).to receive(:carriages).and_return([carriage])
+    allow(train1).to receive(:add_passenger).with(passenger)
     allow(carriage).to receive(:board)
     expect(station).to receive(:release).with(passenger)
     passenger.board(train1, 0)
