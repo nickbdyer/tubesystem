@@ -10,12 +10,18 @@ describe Passenger do
   
 
   it "should be at home when initialized" do
-    expect(passenger.location).to eq "Home"
+    expect(passenger.station).to eq nil
   end
 
   it "should be able to go to a train station" do
     passenger.go_to(station)
-    expect(passenger.location).to eq "Bond Street"
+    expect(passenger.station).to eq station
+  end
+
+  it "should be able to leave a train station" do
+    passenger.go_to(station)
+    passenger.leave(station)
+    expect(passenger.station).to eq nil
   end
 
   it "should have a payment card on initialization" do
@@ -30,12 +36,6 @@ describe Passenger do
   it "should only be able to enter a station if they have a payment card" do
     passenger.lose_card
     expect{passenger.go_to(station)}.to raise_error("Entry not permitted without card.")
-  end
-
-  it "should be able to leave a train station" do
-    passenger.go_to(station)
-    passenger.leave(station)
-    expect(passenger.location).to eq "Home"
   end
 
   it "should only be able to leave the train station it is at" do

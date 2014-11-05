@@ -6,7 +6,7 @@ class Passenger
     @station = nil
   end
 
-  attr_accessor :location
+  # attr_accessor :location
   attr_accessor :station
 
     def has_payment_card?
@@ -26,7 +26,7 @@ class Passenger
 
   def leave(station)
     raise "You can not leave a station you are not at." if station.name != @location
-    @location = "Home"
+    @station = nil
     station.release(self)
   end
 
