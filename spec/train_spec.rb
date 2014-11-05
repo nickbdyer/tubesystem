@@ -12,7 +12,7 @@ describe Train do
   end
 
   it "should be at the Depot when initialised" do
-    expect(train.location).to eq "Depot"
+    expect(train.at_platform).to eq nil
   end
 
   it "should be possible to set the number of carriages on initialization" do
@@ -22,13 +22,12 @@ describe Train do
 
   it "should know what station it is at" do
     train.go_to(old_street)
-    expect(train.location).to eq "Old Street"
+    expect(train.at_platform).to eq old_street
   end
 
   it "should be able to inform the passengers of their new location" do
-    train.carriages[0].board(passenger)
-    allow(passenger).to receive(:station=).with(old_street)
-    expect(passenger).to receive(:location=).with("Old Street")
+    train.add_passenger(passenger)
+    expect(passenger).to receive(:station=)
     train.go_to(old_street)
   end
 

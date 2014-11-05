@@ -2,13 +2,12 @@ class Train
 
 DEFAULT_CARRIAGES = 2
 
-attr_reader :location
+attr_reader :at_platform
 attr_reader :carriages
 attr_reader :passengers
 attr_writer :number_of_carriages
 
   def initialize(options = {})
-    @location = "Depot"
     @at_platform = nil
     @carriages = []
     @passengers = []
@@ -31,26 +30,23 @@ attr_writer :number_of_carriages
   end
 
   def update_location(destination_station)
-    @location = destination_station.name
     @at_platform = destination_station
     update_passenger_location
   end
 
   def update_passenger_location
-    create_passengers_array
     @passengers.each do |passenger|
-      passenger.location = @location
       passenger.station = @at_platform
     end
   end
 
-  def create_passengers_array
-    @carriages.each do |carriage|
-      carriage.passengers.each do |passenger|
-        @passengers << passenger
-      end
-    end
+  def add_passenger(passenger)
+    @passengers << passenger
+  end  
 
+  def remove_passenger(passenger)
+    @passengers.delete(passenger)
   end
+
 
 end
