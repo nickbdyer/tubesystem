@@ -25,17 +25,17 @@ describe Passenger do
   end
 
   it "should have a payment card on initialization" do
-    expect(passenger).to have_payment_card
+    expect(passenger).to have_funds
   end
 
   it "should be possible to lose a payment card" do
     passenger.lose_card
-    expect(passenger).not_to have_payment_card
+    expect(passenger).not_to have_funds
   end
 
   it "should only be able to enter a station if they have a payment card" do
     passenger.lose_card
-    expect{passenger.go_to(station)}.to raise_error("Entry not permitted without card.")
+    expect{passenger.go_to(station)}.to raise_error("Entry not permitted without credit.")
   end
 
   it "should only be able to leave the train station it is at" do

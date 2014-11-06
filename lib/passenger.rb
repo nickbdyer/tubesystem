@@ -3,20 +3,20 @@ class Passenger
   attr_accessor :station
 
   def initialize
-    @has_payment_card = true
+    @payment_card = 1 + rand(1..4)
     @station = nil
   end
 
-  def has_payment_card?
-    @has_payment_card
+  def has_funds?
+    @payment_card >= 2
   end
 
   def lose_card
-    @has_payment_card = false
+    @payment_card = 0
   end
 
   def go_to(station)
-    raise "Entry not permitted without card." unless has_payment_card?
+    raise "Entry not permitted without credit." unless has_funds?
     station.accept(self)
     @station = station
   end
