@@ -7,13 +7,13 @@ This project demonstrates implementation of OOP, TDD, Ruby, Git, RSpec.
 
 The FAAST system will cater for the following:
 
-- There will be a number of trains inside the system.
-- Trains will travel from station to station.
-- Inside of a station, when the train stops, passengers will alight and enter the carriages of the train.
-- A Passenger will touch in at the station and touch out at the destination station.
-- Each coach of a train can hold up to 40 passengers.
-- Each train is made of a number of coaches.
-- **Bonus:** Add a charging system, so a passenger can only board if they have £2.
+- [x] There will be a number of trains inside the system.
+- [x] Trains will travel from station to station.
+- [x] Inside of a station, when the train stops, passengers will alight and enter the carriages of the train.
+- [x] A Passenger will touch in at the station and touch out at the destination station.
+- [x] Each coach of a train can hold up to 40 passengers.
+- [x] Each train is made of a number of coaches.
+- [x] **Bonus:** Add a charging system, so a passenger can only board if they have £2.
 
 Stages:
 -------
