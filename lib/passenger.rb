@@ -4,7 +4,6 @@ class Passenger
 
   def initialize
     @payment_card = 1 + rand(1..4)
-    @station = nil
   end
 
   def has_funds?
@@ -18,17 +17,18 @@ class Passenger
   def go_to(station)
     raise "Entry not permitted without credit." unless has_funds?
     station.accept(self)
-    @station = station
+    self.station = station
   end
 
   def leave(station)
     raise "You can not leave a station you are not at." if @station != station
     station.release(self)
-    @station = nil
+    @payment_card -= 2
+    self.station = nil
   end
 
   def board(train, carriage_number)
-    raise "That train isn't here." if @station != train.at_platform
+    raise "That train isn't here." if station != train.at_platform
     get_on_train(train, carriage_number)
   end
 
