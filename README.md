@@ -29,12 +29,12 @@ Domain model:
 
 >In the FAAST system, there will be a number of **trains**. The **trains** can *move* from **station** to **station**. **Trains** are made up of a number of **carriages**. **Passengers** are able to *board* and *alight* **trains(carriages)**. 
 
-The **carriages** can hold up to 40 **passengers**. **Passengers** will need to *check in* and out at stations. Ultimately in order to check in they need to *have a certain amount of credit* on their card. The **train** will need to *move* and *stop*. 
+>The **carriages** can hold up to 40 **passengers**. **Passengers** will need to *check in* and out at stations. Ultimately in order to check in they need to *have a certain amount of credit* on their card. The **train** will need to *move* and *stop*. 
 
-**Carriages** can be full or empty or somewhere in between. 
+>**Carriages** can be full or empty or somewhere in between. 
 **Trains** can have a maximum number of **carriages** and a minimum. When a train is created it should have an option to define the *number of* **carriages** it has. 
 
-The tube system will need multiple **stations**, but assume that all **stations** are connected directly in a loop/one line. So all **stations** are available from every **station**. 
+>The tube system will need multiple **stations**, but assume that all **stations** are connected directly in a loop/one line. So all **stations** are available from every **station**. 
 
 
 
