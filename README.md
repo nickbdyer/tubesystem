@@ -1,5 +1,8 @@
 #FAAST Tube System
 
+[![Code
+Climate](https://codeclimate.com/github/nickbdyer/tubesystem/badges/gpa.svg)](https://codeclimate.com/github/nickbdyer/tubesystem)
+
 Week 1 Challenge at Maker's Academy
 
 ###The Problem, Domain Model
