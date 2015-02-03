@@ -1,7 +1,7 @@
 #FAAST Tube System
 
 [![Code
-Climate](https://codeclimate.com/github/nickbdyer/tubesystem/badges/gpa.svg)](https://codeclimate.com/github/nickbdyer/tubesystem)
+Climate](https://codeclimate.com/github/nickbdyer/tubesystem/badges/gpa.svg)](https://codeclimate.com/github/nickbdyer/tubesystem) [![Test Coverage](https://codeclimate.com/github/nickbdyer/tubesystem/badges/coverage.svg)](https://codeclimate.com/github/nickbdyer/tubesystem)
 
 Week 1 Challenge at Maker's Academy
 
