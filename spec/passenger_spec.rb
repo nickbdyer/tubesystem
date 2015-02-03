@@ -3,11 +3,13 @@ require 'passenger'
 
 describe Passenger do
 
-  let(:passenger) { Passenger.new }
-  let(:station)   { double :station, accept: nil, release: nil  }
-  let(:station1)  { double :station                             }
-  let(:train)     { double :train, at_platform: station1        }
-  let(:train1)    { double :train, at_platform: station         }
+  let(:passenger)  { Passenger.new }
+  let(:station)    { double :station, accept: nil, release: nil  }
+  let(:station1)   { double :station                             }
+  let(:train)      { double :train, at_platform: station1        }
+  let(:train1)     { double :train, at_platform: station         }
+  let(:carriage)   { double :carriage, passengers: [passenger]   }
+  let(:carriage2)  { double :carriage, passengers: []            }
   
 
   it "should be at home when initialized" do
@@ -23,6 +25,27 @@ describe Passenger do
     passenger.go_to(station)
     passenger.leave(station)
     expect(passenger.station).to eq nil
+  end
+
+  it "should be able to get off a train carriage it is on" do
+    passenger.go_to(station)
+    allow(train1).to receive(:carriages).and_return([carriage, carriage2])
+    allow(train1).to receive(:add_passenger).with(passenger)
+    allow(carriage).to receive(:board)
+    passenger.board(train1, 0)
+    allow(train1).to receive(:remove_passenger).with(passenger)
+    allow(carriage).to receive(:alight)
+    expect(station).to receive(:accept).with(passenger)
+    passenger.alight(train1, 0)
+  end
+
+  it "should not be able to get off a train carriage it isn't on" do
+    passenger.go_to(station)
+    allow(train1).to receive(:carriages).and_return([carriage, carriage2])
+    allow(train1).to receive(:add_passenger).with(passenger)
+    allow(carriage).to receive(:board)
+    passenger.board(train1, 0)
+    expect { passenger.alight(train1, 1) }.to raise_error("You are not in that train carriage.")
   end
 
   it "should have a payment card on initialization" do
@@ -50,7 +73,6 @@ describe Passenger do
   end
 
   it "should not exist in a station when it boards a train" do
-    carriage = double :carriage
     passenger.go_to(station)
     allow(train1).to receive(:carriages).and_return([carriage])
     allow(train1).to receive(:add_passenger).with(passenger)
