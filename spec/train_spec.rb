@@ -32,4 +32,12 @@ describe Train do
     train.go_to(old_street)
   end
 
+  it "should be able to let passegners off the train" do
+    train.add_passenger(passenger)
+    expect(train.passengers).to eq([passenger])
+    train.remove_passenger(passenger)
+    expect(train.passengers).to eq([])
+  end
+
+
 end
